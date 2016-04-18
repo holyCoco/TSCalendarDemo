@@ -15,14 +15,14 @@
 		1BCB5B331CC47995000D8FD5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BCB5B311CC47995000D8FD5 /* LaunchScreen.storyboard */; };
 		1BCB5B3E1CC47995000D8FD5 /* TSCalendarDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B3D1CC47995000D8FD5 /* TSCalendarDemoTests.m */; };
 		1BCB5B491CC47995000D8FD5 /* TSCalendarDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B481CC47995000D8FD5 /* TSCalendarDemoUITests.m */; };
-		1BCB5B951CC48988000D8FD5 /* UIColor+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B801CC48988000D8FD5 /* UIColor+tool.m */; };
-		1BCB5B961CC48988000D8FD5 /* UIView+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B821CC48988000D8FD5 /* UIView+tool.m */; };
-		1BCB5B971CC48988000D8FD5 /* TSC_Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B851CC48988000D8FD5 /* TSC_Logic.m */; };
-		1BCB5B981CC48988000D8FD5 /* TSCalendarUnitDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B891CC48988000D8FD5 /* TSCalendarUnitDayCell.m */; };
-		1BCB5B991CC48988000D8FD5 /* TSCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B8B1CC48988000D8FD5 /* TSCalendarView.m */; };
-		1BCB5B9A1CC48988000D8FD5 /* TSCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B8E1CC48988000D8FD5 /* TSCommonModel.m */; };
-		1BCB5B9B1CC48988000D8FD5 /* TSC_DaySelectableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B911CC48988000D8FD5 /* TSC_DaySelectableLabel.m */; };
-		1BCB5B9C1CC48988000D8FD5 /* ZQCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5B941CC48988000D8FD5 /* ZQCollectionView.m */; };
+		1BCB5BAF1CC48BD7000D8FD5 /* TSC_DaySelectableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA01CC48BD7000D8FD5 /* TSC_DaySelectableLabel.m */; };
+		1BCB5BB01CC48BD7000D8FD5 /* TSC_Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA21CC48BD7000D8FD5 /* TSC_Logic.m */; };
+		1BCB5BB11CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA41CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m */; };
+		1BCB5BB21CC48BD7000D8FD5 /* TSCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA61CC48BD7000D8FD5 /* TSCalendarView.m */; };
+		1BCB5BB31CC48BD7000D8FD5 /* TSCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA81CC48BD7000D8FD5 /* TSCommonModel.m */; };
+		1BCB5BB41CC48BD7000D8FD5 /* UIColor+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */; };
+		1BCB5BB51CC48BD7000D8FD5 /* UIView+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */; };
+		1BCB5BB61CC48BD7000D8FD5 /* ZQCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,24 +59,24 @@
 		1BCB5B441CC47995000D8FD5 /* TSCalendarDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSCalendarDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BCB5B481CC47995000D8FD5 /* TSCalendarDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSCalendarDemoUITests.m; sourceTree = "<group>"; };
 		1BCB5B4A1CC47995000D8FD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BCB5B7F1CC48988000D8FD5 /* UIColor+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+tool.h"; sourceTree = "<group>"; };
-		1BCB5B801CC48988000D8FD5 /* UIColor+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+tool.m"; sourceTree = "<group>"; };
-		1BCB5B811CC48988000D8FD5 /* UIView+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+tool.h"; sourceTree = "<group>"; };
-		1BCB5B821CC48988000D8FD5 /* UIView+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+tool.m"; sourceTree = "<group>"; };
-		1BCB5B841CC48988000D8FD5 /* TSC_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC_Logic.h; sourceTree = "<group>"; };
-		1BCB5B851CC48988000D8FD5 /* TSC_Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSC_Logic.m; sourceTree = "<group>"; };
-		1BCB5B861CC48988000D8FD5 /* TSC_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC_Color.h; sourceTree = "<group>"; };
-		1BCB5B871CC48988000D8FD5 /* TSC_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC_Constants.h; sourceTree = "<group>"; };
-		1BCB5B881CC48988000D8FD5 /* TSCalendarUnitDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCalendarUnitDayCell.h; sourceTree = "<group>"; };
-		1BCB5B891CC48988000D8FD5 /* TSCalendarUnitDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCalendarUnitDayCell.m; sourceTree = "<group>"; };
-		1BCB5B8A1CC48988000D8FD5 /* TSCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCalendarView.h; sourceTree = "<group>"; };
-		1BCB5B8B1CC48988000D8FD5 /* TSCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCalendarView.m; sourceTree = "<group>"; };
-		1BCB5B8D1CC48988000D8FD5 /* TSCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCommonModel.h; sourceTree = "<group>"; };
-		1BCB5B8E1CC48988000D8FD5 /* TSCommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCommonModel.m; sourceTree = "<group>"; };
-		1BCB5B901CC48988000D8FD5 /* TSC_DaySelectableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSC_DaySelectableLabel.h; sourceTree = "<group>"; };
-		1BCB5B911CC48988000D8FD5 /* TSC_DaySelectableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSC_DaySelectableLabel.m; sourceTree = "<group>"; };
-		1BCB5B931CC48988000D8FD5 /* ZQCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQCollectionView.h; sourceTree = "<group>"; };
-		1BCB5B941CC48988000D8FD5 /* ZQCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQCollectionView.m; sourceTree = "<group>"; };
+		1BCB5B9D1CC48BD7000D8FD5 /* TSC_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSC_Color.h; path = TSCalendarView/TSC_Color.h; sourceTree = "<group>"; };
+		1BCB5B9E1CC48BD7000D8FD5 /* TSC_Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSC_Constants.h; path = TSCalendarView/TSC_Constants.h; sourceTree = "<group>"; };
+		1BCB5B9F1CC48BD7000D8FD5 /* TSC_DaySelectableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSC_DaySelectableLabel.h; path = TSCalendarView/TSC_DaySelectableLabel.h; sourceTree = "<group>"; };
+		1BCB5BA01CC48BD7000D8FD5 /* TSC_DaySelectableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSC_DaySelectableLabel.m; path = TSCalendarView/TSC_DaySelectableLabel.m; sourceTree = "<group>"; };
+		1BCB5BA11CC48BD7000D8FD5 /* TSC_Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSC_Logic.h; path = TSCalendarView/TSC_Logic.h; sourceTree = "<group>"; };
+		1BCB5BA21CC48BD7000D8FD5 /* TSC_Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSC_Logic.m; path = TSCalendarView/TSC_Logic.m; sourceTree = "<group>"; };
+		1BCB5BA31CC48BD7000D8FD5 /* TSCalendarUnitDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCalendarUnitDayCell.h; path = TSCalendarView/TSCalendarUnitDayCell.h; sourceTree = "<group>"; };
+		1BCB5BA41CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCalendarUnitDayCell.m; path = TSCalendarView/TSCalendarUnitDayCell.m; sourceTree = "<group>"; };
+		1BCB5BA51CC48BD7000D8FD5 /* TSCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCalendarView.h; path = TSCalendarView/TSCalendarView.h; sourceTree = "<group>"; };
+		1BCB5BA61CC48BD7000D8FD5 /* TSCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCalendarView.m; path = TSCalendarView/TSCalendarView.m; sourceTree = "<group>"; };
+		1BCB5BA71CC48BD7000D8FD5 /* TSCommonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TSCommonModel.h; path = TSCalendarView/TSCommonModel.h; sourceTree = "<group>"; };
+		1BCB5BA81CC48BD7000D8FD5 /* TSCommonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TSCommonModel.m; path = TSCalendarView/TSCommonModel.m; sourceTree = "<group>"; };
+		1BCB5BA91CC48BD7000D8FD5 /* UIColor+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+tool.h"; path = "TSCalendarView/UIColor+tool.h"; sourceTree = "<group>"; };
+		1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+tool.m"; path = "TSCalendarView/UIColor+tool.m"; sourceTree = "<group>"; };
+		1BCB5BAB1CC48BD7000D8FD5 /* UIView+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+tool.h"; path = "TSCalendarView/UIView+tool.h"; sourceTree = "<group>"; };
+		1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+tool.m"; path = "TSCalendarView/UIView+tool.m"; sourceTree = "<group>"; };
+		1BCB5BAD1CC48BD7000D8FD5 /* ZQCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZQCollectionView.h; path = TSCalendarView/ZQCollectionView.h; sourceTree = "<group>"; };
+		1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZQCollectionView.m; path = TSCalendarView/ZQCollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,74 +170,26 @@
 		1BCB5B591CC479F9000D8FD5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1BCB5B7D1CC48988000D8FD5 /* TSCalendarView */,
+				1BCB5B9D1CC48BD7000D8FD5 /* TSC_Color.h */,
+				1BCB5B9E1CC48BD7000D8FD5 /* TSC_Constants.h */,
+				1BCB5B9F1CC48BD7000D8FD5 /* TSC_DaySelectableLabel.h */,
+				1BCB5BA01CC48BD7000D8FD5 /* TSC_DaySelectableLabel.m */,
+				1BCB5BA11CC48BD7000D8FD5 /* TSC_Logic.h */,
+				1BCB5BA21CC48BD7000D8FD5 /* TSC_Logic.m */,
+				1BCB5BA31CC48BD7000D8FD5 /* TSCalendarUnitDayCell.h */,
+				1BCB5BA41CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m */,
+				1BCB5BA51CC48BD7000D8FD5 /* TSCalendarView.h */,
+				1BCB5BA61CC48BD7000D8FD5 /* TSCalendarView.m */,
+				1BCB5BA71CC48BD7000D8FD5 /* TSCommonModel.h */,
+				1BCB5BA81CC48BD7000D8FD5 /* TSCommonModel.m */,
+				1BCB5BA91CC48BD7000D8FD5 /* UIColor+tool.h */,
+				1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */,
+				1BCB5BAB1CC48BD7000D8FD5 /* UIView+tool.h */,
+				1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */,
+				1BCB5BAD1CC48BD7000D8FD5 /* ZQCollectionView.h */,
+				1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		1BCB5B7D1CC48988000D8FD5 /* TSCalendarView */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B7E1CC48988000D8FD5 /* Categary */,
-				1BCB5B831CC48988000D8FD5 /* Logic */,
-				1BCB5B861CC48988000D8FD5 /* TSC_Color.h */,
-				1BCB5B871CC48988000D8FD5 /* TSC_Constants.h */,
-				1BCB5B881CC48988000D8FD5 /* TSCalendarUnitDayCell.h */,
-				1BCB5B891CC48988000D8FD5 /* TSCalendarUnitDayCell.m */,
-				1BCB5B8A1CC48988000D8FD5 /* TSCalendarView.h */,
-				1BCB5B8B1CC48988000D8FD5 /* TSCalendarView.m */,
-				1BCB5B8C1CC48988000D8FD5 /* TSCommonModel */,
-				1BCB5B8F1CC48988000D8FD5 /* TSCommonViews */,
-				1BCB5B921CC48988000D8FD5 /* ZQCollectionView */,
-			);
-			path = TSCalendarView;
-			sourceTree = "<group>";
-		};
-		1BCB5B7E1CC48988000D8FD5 /* Categary */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B7F1CC48988000D8FD5 /* UIColor+tool.h */,
-				1BCB5B801CC48988000D8FD5 /* UIColor+tool.m */,
-				1BCB5B811CC48988000D8FD5 /* UIView+tool.h */,
-				1BCB5B821CC48988000D8FD5 /* UIView+tool.m */,
-			);
-			path = Categary;
-			sourceTree = "<group>";
-		};
-		1BCB5B831CC48988000D8FD5 /* Logic */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B841CC48988000D8FD5 /* TSC_Logic.h */,
-				1BCB5B851CC48988000D8FD5 /* TSC_Logic.m */,
-			);
-			path = Logic;
-			sourceTree = "<group>";
-		};
-		1BCB5B8C1CC48988000D8FD5 /* TSCommonModel */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B8D1CC48988000D8FD5 /* TSCommonModel.h */,
-				1BCB5B8E1CC48988000D8FD5 /* TSCommonModel.m */,
-			);
-			path = TSCommonModel;
-			sourceTree = "<group>";
-		};
-		1BCB5B8F1CC48988000D8FD5 /* TSCommonViews */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B901CC48988000D8FD5 /* TSC_DaySelectableLabel.h */,
-				1BCB5B911CC48988000D8FD5 /* TSC_DaySelectableLabel.m */,
-			);
-			path = TSCommonViews;
-			sourceTree = "<group>";
-		};
-		1BCB5B921CC48988000D8FD5 /* ZQCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				1BCB5B931CC48988000D8FD5 /* ZQCollectionView.h */,
-				1BCB5B941CC48988000D8FD5 /* ZQCollectionView.m */,
-			);
-			path = ZQCollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,17 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BCB5B9B1CC48988000D8FD5 /* TSC_DaySelectableLabel.m in Sources */,
 				1BCB5B2B1CC47995000D8FD5 /* ViewController.m in Sources */,
 				1BCB5B281CC47995000D8FD5 /* AppDelegate.m in Sources */,
+				1BCB5BAF1CC48BD7000D8FD5 /* TSC_DaySelectableLabel.m in Sources */,
+				1BCB5BB31CC48BD7000D8FD5 /* TSCommonModel.m in Sources */,
+				1BCB5BB51CC48BD7000D8FD5 /* UIView+tool.m in Sources */,
+				1BCB5BB41CC48BD7000D8FD5 /* UIColor+tool.m in Sources */,
+				1BCB5BB21CC48BD7000D8FD5 /* TSCalendarView.m in Sources */,
 				1BCB5B251CC47995000D8FD5 /* main.m in Sources */,
-				1BCB5B951CC48988000D8FD5 /* UIColor+tool.m in Sources */,
-				1BCB5B981CC48988000D8FD5 /* TSCalendarUnitDayCell.m in Sources */,
-				1BCB5B961CC48988000D8FD5 /* UIView+tool.m in Sources */,
-				1BCB5B9A1CC48988000D8FD5 /* TSCommonModel.m in Sources */,
-				1BCB5B971CC48988000D8FD5 /* TSC_Logic.m in Sources */,
-				1BCB5B9C1CC48988000D8FD5 /* ZQCollectionView.m in Sources */,
-				1BCB5B991CC48988000D8FD5 /* TSCalendarView.m in Sources */,
+				1BCB5BB01CC48BD7000D8FD5 /* TSC_Logic.m in Sources */,
+				1BCB5BB61CC48BD7000D8FD5 /* ZQCollectionView.m in Sources */,
+				1BCB5BB11CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -604,6 +556,7 @@
 				1BCB5B4F1CC47995000D8FD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BCB5B501CC47995000D8FD5 /* Build configuration list for PBXNativeTarget "TSCalendarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -612,6 +565,7 @@
 				1BCB5B521CC47995000D8FD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BCB5B531CC47995000D8FD5 /* Build configuration list for PBXNativeTarget "TSCalendarDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +574,7 @@
 				1BCB5B551CC47995000D8FD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
