@@ -1,4 +1,4 @@
-# TSCalendarDemo
+# TSCalendar
 
 This is a calendar base on UICollectionView!
 
