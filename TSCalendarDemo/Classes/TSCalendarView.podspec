@@ -6,7 +6,7 @@ s.summary = "A calendar base on UICollectionView."
 
 s.homepage = "https://github.com/holyCoco/TSCalendarDemo"
 s.author = { "ZhangQiang" => "925324664@qq.com" }
-s.source = { :git => "https://github.com/holyCoco/TSCalendarDemo.git",:commit => "04ef0fdf15525d5112640c606c27af893d2e1457",:tag=>"1.0.0"}
+s.source = { :git => "https://github.com/holyCoco/TSCalendarDemo.git",:commit => "733da007cbbf9a52ba96210aedb801910d449b01",:tag=>"1.0.0"}
 s.source_files = 'TSCalendarDemo/Classes/TSCalendarView/*.{h,m}'
 s.license = {:type=>'Custom',:text=>'Copyright (C) 2016 Apple Inc.All Rights Reserved.'}
 s.platform=:ios,'7.0'

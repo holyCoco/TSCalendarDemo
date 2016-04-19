@@ -28,7 +28,7 @@
         _horizonNumber = horizonNumber; //横
         _verticalNumber = verticalNumber; //竖
         _qCollectionScrollDirection = qCollectionScrollDirection;
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
         //create flowLayout
         UICollectionViewFlowLayout* viewLayout = [[UICollectionViewFlowLayout alloc] init];
         viewLayout.headerReferenceSize = CGSizeMake(0.0, 0.0); //头部视图框架大小

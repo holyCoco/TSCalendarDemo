@@ -8,8 +8,8 @@
 
 #import "TSCalendarUnitDayCell.h"
 #import "TSCommonModel.h"
-#import <UIKit/UIKit.h>
 #import "ZQCollectionView.h"
+#import <UIKit/UIKit.h>
 
 @protocol TSCalendarDelegate <NSObject>
 - (void)calendarHeightAtPresent:(float)calendarH;
@@ -25,6 +25,10 @@
     *uDay_selectedTitleColor,
     *uDay_selectedSubTitleColor,
     *uDay_selectedBackgroundColor;
+@property (nonatomic, retain) UIColor *uDays_ModTitleColor, *uDays_ModBackColor; //月份中不可点击的dayView的字体颜色和背景色
+@property (nonatomic, assign) BOOL isShowUDayBorderLine;        //是否显示dayView边框线
+@property(nonatomic,retain)UIColor *uDay_BorderLineColor;   //边框颜色
+
 @property (nonatomic, assign) TSCalendarDaysLayoutType uDays_layoutType; //单天的布局样式
 
 @property (nonatomic, assign) id<TSCalendarDelegate> delegate;

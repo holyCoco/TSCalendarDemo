@@ -19,7 +19,11 @@
     *daySubTitleColor, //如：阴历，有无事件，天气等
     *daySelectedTitleColor,
     *daySelectedSubTitleColor,
-    *daySelectedBackgroundColor;
+    *daySelectedBackgroundColor,
+    *dayBackgroundColor;
+@property (nonatomic, retain) UIColor *modTitleColor, *modBackgroundColor; //月份中不可点击的dayView的字体颜色和背景色
+@property (nonatomic, assign) BOOL isShowDayBorderLine; //是否显示边框
+@property (nonatomic, retain) UIColor* borderLineColor; //边框颜色
 //=============================================
 @property (nonatomic, assign) int sufaceYear, sufaceMonth, sufaceDay;
 @property (nonatomic, retain) TSCalendarUnitDateModel* unitDateModel;

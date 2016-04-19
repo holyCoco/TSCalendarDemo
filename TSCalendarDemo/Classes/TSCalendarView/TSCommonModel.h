@@ -6,11 +6,10 @@
 //  Copyright © 2016年 zhangqiang. All rights reserved.
 //
 
+#import "TSC_Logic.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-
-#import "TSC_Logic.h"
 
 #define TSC_START_YEAR 2000
 
@@ -34,6 +33,9 @@ typedef NS_ENUM(NSUInteger, TSCalendarDaysLayoutType) {
     *selectedSubTitleColor,
     *selectedBackgroundColor;
 @property (nonatomic, assign) TSCalendarDaysLayoutType layoutType; //单天的布局样式
+@property (nonatomic, retain) UIColor *modTitleColor, *modBackColor; //月份中不可点击的dayView的字体颜色和背景色
+@property (nonatomic, assign) BOOL isShowUDayBorderLine; //是否显示dayView边框线
+@property (nonatomic, retain) UIColor* borderLineColor;
 @end
 
 /**=============================================

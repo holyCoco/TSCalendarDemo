@@ -17,6 +17,10 @@ static NSString* dSelectedTitleColor = @"selectedTitleColor";
 static NSString* dSelectedSubTitleColor = @"selectedSubTitleColor";
 static NSString* dSelectedBackgroundColor = @"selectedBackgroundColor";
 static NSString* dLayoutType = @"layoutType";
+static NSString* dModTitleColor = @"modTitleColor"; //月份中不可选中的天的字体颜色 Mod = month other days
+static NSString* dModBackColor = @"modBackColor";
+static NSString* dISShowDayBorderLine = @"isShowUDayBorderLine";
+static NSString* dBorderLineColor = @"borderLineColor";
 
 @implementation TSCommonModel
 @end
@@ -26,28 +30,6 @@ static NSString* dLayoutType = @"layoutType";
 @property (nonatomic, retain) NSDictionary* defaultSettingDic;
 @end
 @implementation TSCalendarDaysLayoutModel
-
-- (void)doSetPropertyDefaultValueWithPname:(NSString*)proptyName andSettedValue:(id)settedValue
-{
-    u_int count;
-    objc_property_t* properties = class_copyPropertyList([TSCalendarDaysLayoutModel class], &count);
-    for (int i = 0; i < count; i++) {
-        const char* pName = property_getName(properties[i]);
-        NSString* propertyName = [NSString stringWithUTF8String:pName];
-        if ([propertyName isEqualToString:proptyName]) {
-            if (([settedValue isKindOfClass:[NSNumber class]] && [settedValue floatValue] == 0)
-                || settedValue == nil) {
-                if ([proptyName rangeOfString:@"Color"].location != NSNotFound) { //默认属性是颜色，需要转换
-                    [self setValue:[UIColor colorForHex:[self.defaultSettingDic objectForKey:proptyName]] forKey:proptyName];
-                }
-                else { //默认属性是字符串或者数字
-                    [self setValue:[self.defaultSettingDic objectForKey:proptyName] forKey:proptyName];
-                }
-            }
-            return;
-        }
-    }
-}
 
 - (NSDictionary*)defaultSettingDic
 {
@@ -61,83 +43,101 @@ static NSString* dLayoutType = @"layoutType";
             dSelectedTitleColor : @"ffffff", //[UIColor whiteColor],
             dSelectedSubTitleColor : @"ffffff", //[UIColor whiteColor],
             dSelectedBackgroundColor : @"000000", //[UIColor blackColor],
-            dLayoutType : @(TSCalendarDaysLayoutType_Default)
+            dLayoutType : @(TSCalendarDaysLayoutType_Default),
+            dModTitleColor : @"707070", //月份中不可选中的天的字体颜色 Mod = month other days
+            dModBackColor : @"ececec",
+            dISShowDayBorderLine : @(0),
+            dBorderLineColor : @"d3d3d3"
         };
     }
     return _defaultSettingDic;
 }
 
-- (void)setWidth:(float)width
+- (id)getDefaultValueWithPropertyName:(NSString*)ptyName
 {
-    if (_width != 0 && _width == width) {
-        return;
+    id defaultValue = [self.defaultSettingDic objectForKey:ptyName];
+    if ([ptyName rangeOfString:@"Color"].location != NSNotFound) { //此属性是颜色，需要转换
+        defaultValue = [UIColor colorForHex:TSCString_Format(@"%@", defaultValue)];
     }
-    _width = width;
-    [self doSetPropertyDefaultValueWithPname:dWidth andSettedValue:@(width)];
+    return defaultValue;
 }
-- (void)setHeight:(float)height
+#pragma mark------------------TSCalendarDaysLayoutModel--->LazyLoading-------------------
+- (float)width
 {
-    if (_height != 0 && _height == height) {
-        return;
+    if (_width == 0) {
+        _width = [[self getDefaultValueWithPropertyName:dWidth] floatValue];
     }
-    _height = height;
-    [self doSetPropertyDefaultValueWithPname:dHeight andSettedValue:@(height)];
+    return _width;
 }
-- (void)setTitleColor:(UIColor*)titleColor
+- (float)height
 {
-    if (_titleColor && _titleColor == titleColor) {
-        return;
+    if (_height == 0) {
+        _height = [[self getDefaultValueWithPropertyName:dHeight] floatValue];
     }
-    _titleColor = titleColor;
-    [self doSetPropertyDefaultValueWithPname:dTitleColor andSettedValue:titleColor];
+    return _height;
 }
-- (void)setSubTitleColor:(UIColor*)subTitleColor
+- (UIColor*)titleColor
 {
-    if (_subTitleColor && _subTitleColor == subTitleColor) {
-        return;
+    if (_titleColor == nil) {
+        _titleColor = [self getDefaultValueWithPropertyName:dTitleColor];
     }
-    _subTitleColor = subTitleColor;
-    [self doSetPropertyDefaultValueWithPname:dSubTitleColor andSettedValue:subTitleColor];
+    return _titleColor;
 }
-- (void)setBackgroundColor:(UIColor*)backgroundColor
+- (UIColor*)subTitleColor
 {
-    if (_backgroundColor && _backgroundColor == backgroundColor) {
-        return;
+    if (_subTitleColor == nil) {
+        _subTitleColor = [self getDefaultValueWithPropertyName:dSubTitleColor];
     }
-    _backgroundColor = backgroundColor;
-    [self doSetPropertyDefaultValueWithPname:dBackgroundColor andSettedValue:backgroundColor];
+    return _subTitleColor;
 }
-- (void)setSelectedTitleColor:(UIColor*)selectedTitleColor
+- (UIColor*)backgroundColor
 {
-    if (_selectedTitleColor && _selectedTitleColor == selectedTitleColor) {
-        return;
+    if (_backgroundColor == nil) {
+        _backgroundColor = [self getDefaultValueWithPropertyName:dBackgroundColor];
     }
-    _selectedTitleColor = selectedTitleColor;
-    [self doSetPropertyDefaultValueWithPname:dSelectedTitleColor andSettedValue:selectedTitleColor];
+    return _backgroundColor;
 }
-- (void)setSelectedSubTitleColor:(UIColor*)selectedSubTitleColor
+- (UIColor*)selectedTitleColor
 {
-    if (_selectedSubTitleColor && _selectedSubTitleColor == selectedSubTitleColor) {
-        return;
+    if (_selectedTitleColor == nil) {
+        _selectedTitleColor = [self getDefaultValueWithPropertyName:dSelectedTitleColor];
     }
-    _selectedSubTitleColor = selectedSubTitleColor;
-    [self doSetPropertyDefaultValueWithPname:dSelectedSubTitleColor andSettedValue:selectedSubTitleColor];
+    return _selectedTitleColor;
 }
-- (void)setSelectedBackgroundColor:(UIColor*)selectedBackgroundColor
+- (UIColor*)selectedSubTitleColor
 {
-    if (_selectedBackgroundColor && _selectedBackgroundColor == selectedBackgroundColor) {
-        return;
+    if (_selectedSubTitleColor == nil) {
+        _selectedSubTitleColor = [self getDefaultValueWithPropertyName:dSelectedSubTitleColor];
     }
-    _selectedBackgroundColor = selectedBackgroundColor;
-    [self doSetPropertyDefaultValueWithPname:dSelectedBackgroundColor andSettedValue:selectedBackgroundColor];
+    return _selectedSubTitleColor;
 }
-- (void)setLayoutType:(TSCalendarDaysLayoutType)layoutType
+- (UIColor*)selectedBackgroundColor
 {
-    if (_layoutType == layoutType) {
-        return;
+    if (_selectedBackgroundColor == nil) {
+        _selectedBackgroundColor = [self getDefaultValueWithPropertyName:dSelectedBackgroundColor];
     }
-    _layoutType = layoutType;
-    [self doSetPropertyDefaultValueWithPname:dLayoutType andSettedValue:@(layoutType)];
+    return _selectedBackgroundColor;
+}
+- (UIColor*)modBackColor
+{
+    if (_modBackColor == nil) {
+        _modBackColor = [self getDefaultValueWithPropertyName:dModBackColor];
+    }
+    return _modBackColor;
+}
+- (UIColor*)modTitleColor
+{
+    if (_modTitleColor == nil) {
+        _modTitleColor = [self getDefaultValueWithPropertyName:dModTitleColor];
+    }
+    return _modTitleColor;
+}
+- (UIColor*)borderLineColor
+{
+    if (_borderLineColor == nil) {
+        _borderLineColor = [self getDefaultValueWithPropertyName:dBorderLineColor];
+    }
+    return _borderLineColor;
 }
 @end
 
@@ -162,7 +162,7 @@ static NSString* dLayoutType = @"layoutType";
     //    int nextMonthDaysNumber = [[TSC_Logic getInstance]
     //        getDaysNumberOfYear:nextMonthYear
     //                   andMonth:nextMonth];
-//    int tempNum1 = monthFirstDayWeekday + currentMonthDaysNumber;
+    //    int tempNum1 = monthFirstDayWeekday + currentMonthDaysNumber;
 
     //当前这个月需要的格子数
     //    int currentMonthNeededGridNum = ((tempNum1 / 7) + ((tempNum1 % 7) == 0 ? 0 : 1)) * 7;

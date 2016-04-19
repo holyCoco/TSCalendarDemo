@@ -9,7 +9,7 @@
 #import "TSCalendarView.h"
 #import "UIView+tool.h"
 #import "ViewController.h"
-
+#import <objc/runtime.h>
 /**
  <前言>:
  *  为了TSCalendar作为第三方库内部不再导入其他第三方库，我把ZQCollectionView（一个可以横向显示数据的collectionView，也是我在维护）文件添加进来，也把UIColor+MCUIColorsUtils内部的一些用到的方法拷贝到了UIColor+tool文件中，感谢UIColor+MCUIColorsUtils！
@@ -28,12 +28,17 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
 
-    TSCalendarView* calendarView = [[TSCalendarView alloc] initWithFrame:CGRectMake(0, 60, kTSC_DeviceWidth, kTSC_DeviceWidth / 7.0 * 6.0)];
+    float tempWid = 350;
+    TSCalendarView* calendarView = [[TSCalendarView alloc] initWithFrame:CGRectMake((kTSC_DeviceWidth - tempWid) / 2.0, 60, tempWid, tempWid / 7.0 * 6.0)];
     calendarView.uDay_titleColor = [UIColor redColor];
     calendarView.uDay_subTitleColor = [UIColor orangeColor];
     calendarView.uDay_selectedTitleColor = [UIColor whiteColor];
     calendarView.uDay_selectedSubTitleColor = [UIColor greenColor];
     calendarView.uDay_selectedBackgroundColor = [UIColor orangeColor];
+    calendarView.uDays_ModBackColor = [UIColor clearColor];
+    calendarView.uDay_backgroundColor = [UIColor clearColor];
+    calendarView.isShowUDayBorderLine = YES;
+    calendarView.uDay_BorderLineColor = [UIColor clearColor];
     calendarView.uDays_layoutType = TSCalendarDaysLayoutType_Default; //阴历模式暂未完善，敬请期待
     calendarView.delegate = self;
     [self.view addSubview:calendarView];

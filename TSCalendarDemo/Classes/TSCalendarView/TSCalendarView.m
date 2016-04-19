@@ -48,12 +48,18 @@
     cell.daySelectedTitleColor = self.daysLayoutModel.selectedTitleColor;
     cell.daySelectedSubTitleColor = self.daysLayoutModel.selectedSubTitleColor;
     cell.daySelectedBackgroundColor = self.daysLayoutModel.selectedBackgroundColor;
-    //年月日设置
+
+    cell.dayBackgroundColor = self.daysLayoutModel.backgroundColor;
+    cell.modTitleColor = self.daysLayoutModel.modTitleColor;
+    cell.modBackgroundColor = self.daysLayoutModel.modBackColor;
+    cell.isShowDayBorderLine = self.daysLayoutModel.isShowUDayBorderLine;
+    cell.borderLineColor = self.daysLayoutModel.borderLineColor;
+    //============= 年月日设置
     cell.sufaceYear = TSC_START_YEAR + (int)indexPath.section / 12;
     cell.sufaceMonth = (int)indexPath.section % 12 + 1;
     cell.sufaceDay = (int)indexPath.row;
     [cell resetModelAndDateShowText];
-    cell.isTSC_UnitDayViewSelected = NO;
+    cell.isTSC_UnitDayViewSelected = NO; //没有选中
 
     //选中的不能因为重用给变了颜色
     if (_lastSelectIndexPath) {
@@ -180,9 +186,8 @@
         _mCollectionView = [[ZQCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) andHorizonNum:7 andVerticalNum:6 andScrollDirection:QCollectionScrollDirection_Horizontal andCollectionCellClass:[TSCalendarUnitDayCell class]];
         _mCollectionView.collectionDelegate = self;
         _mCollectionView.clipsToBounds = YES;
-        _mCollectionView.collectionBackgroundColor = [UIColor whiteColor];
-
-        _mCollectionView.layer.borderColor = [kColor_Line_Color CGColor];
+        _mCollectionView.collectionBackgroundColor = [UIColor clearColor];
+        _mCollectionView.layer.borderColor = [self.daysLayoutModel.borderLineColor CGColor];
         _mCollectionView.layer.borderWidth = 0.5;
 
         for (UIView* tempView in _mCollectionView.subviews) {
@@ -193,6 +198,7 @@
             }
         }
     }
+    _mCollectionView.layer.borderColor = [self.daysLayoutModel.borderLineColor CGColor];
     return _mCollectionView;
 }
 - (TSCalendarDaysLayoutModel*)daysLayoutModel
@@ -207,6 +213,10 @@
     _daysLayoutModel.selectedSubTitleColor = self.uDay_selectedSubTitleColor;
     _daysLayoutModel.selectedBackgroundColor = self.uDay_selectedBackgroundColor;
     _daysLayoutModel.layoutType = self.uDays_layoutType;
+    _daysLayoutModel.modBackColor = self.uDays_ModBackColor;
+    _daysLayoutModel.modTitleColor = self.uDays_ModTitleColor;
+    _daysLayoutModel.isShowUDayBorderLine = self.isShowUDayBorderLine;
+    _daysLayoutModel.borderLineColor = self.uDay_BorderLineColor;
     return _daysLayoutModel;
 }
 

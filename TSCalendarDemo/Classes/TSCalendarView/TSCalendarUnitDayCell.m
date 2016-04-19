@@ -41,16 +41,16 @@
 {
     TSCalendarUnitDateModel* unitDateModel = [TSCalendarUnitDateModel createWithSufaceYear:self.sufaceYear andSufaceMonth:self.sufaceMonth andSufaceDay:self.sufaceDay];
     self.unitDateModel = unitDateModel;
-//    self.dayLabel.text = TSCString_Format(@"%d-\n%d-%d", unitDateModel.year, unitDateModel.month, unitDateModel.day);
-    self.dayLabel.text = TSCString_Format(@"%d",unitDateModel.day);
+    //    self.dayLabel.text = TSCString_Format(@"%d-\n%d-%d", unitDateModel.year, unitDateModel.month, unitDateModel.day);
+    self.dayLabel.text = TSCString_Format(@"%d", unitDateModel.day);
     self.userInteractionEnabled = unitDateModel.isBelongToThisMonth;
-    self.backgroundColor = unitDateModel.isBelongToThisMonth ? [UIColor whiteColor] : kColor_Light_Gray_Color;
-    self.dayLabel.textColor = unitDateModel.isBelongToThisMonth ? self.dayTitleColor : [UIColor lightGrayColor];
-    self.lunarDayLabel.textColor = unitDateModel.isBelongToThisMonth ? self.daySubTitleColor : [UIColor lightGrayColor];
+    self.backgroundColor = unitDateModel.isBelongToThisMonth ? self.dayBackgroundColor : self.modBackgroundColor;
+    self.dayLabel.textColor = unitDateModel.isBelongToThisMonth ? self.dayTitleColor : self.modTitleColor;
+    self.lunarDayLabel.textColor = unitDateModel.isBelongToThisMonth ? self.daySubTitleColor : self.modTitleColor;
     self.lunarDayLabel.text = @"初一";
 }
 
-#pragma mark------------------Setter-------------------
+#pragma mark------------------ Setter -------------------
 - (void)setDayLayoutType:(TSCalendarDaysLayoutType)dayLayoutType //设置单天样式
 {
     if (dayLayoutType != 0 && _dayLayoutType == dayLayoutType) {
@@ -76,7 +76,7 @@
         return;
     }
     _isTSC_UnitDayViewSelected = isTSC_UnitDayViewSelected;
-    self.backgroundColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor : [UIColor whiteColor];
+    self.backgroundColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor : (self.dayBackgroundColor ? self.dayBackgroundColor : [UIColor whiteColor]);
     if (self.dayLayoutType == TSCalendarDaysLayoutType_Default) {
         self.dayLabel.isSelected4TSC = isTSC_UnitDayViewSelected;
     }
@@ -105,7 +105,27 @@
     _daySelectedSubTitleColor = daySelectedSubTitleColor;
     self.lunarDayLabel.selectTextColor = daySelectedSubTitleColor;
 }
-
+- (void)setDayBackgroundColor:(UIColor*)dayBackgroundColor
+{
+    _dayBackgroundColor = dayBackgroundColor;
+    self.backgroundColor = dayBackgroundColor;
+}
+- (void)setIsShowDayBorderLine:(BOOL)isShowDayBorderLine
+{
+    _isShowDayBorderLine = isShowDayBorderLine;
+    UIView* border1 = [self.contentView viewWithTag:1234];
+    border1.hidden = !isShowDayBorderLine;
+    UIView* border2 = [self.contentView viewWithTag:1235];
+    border2.hidden = !isShowDayBorderLine;
+}
+- (void)setBorderLineColor:(UIColor*)borderLineColor
+{
+    _borderLineColor = borderLineColor;
+    UIView* border1 = [self.contentView viewWithTag:1234];
+    UIView* border2 = [self.contentView viewWithTag:1235];
+    border1.backgroundColor = borderLineColor;
+    border2.backgroundColor = borderLineColor;
+}
 #pragma mark------------------LazyLoading-------------------
 - (TSC_DaySelectableLabel*)dayLabel
 {
