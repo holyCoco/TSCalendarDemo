@@ -35,7 +35,8 @@
     calendarView.uDay_selectedTitleColor = [UIColor whiteColor];
     calendarView.uDay_selectedSubTitleColor = [UIColor greenColor];
     calendarView.uDay_selectedBackgroundColor = [UIColor orangeColor];
-    calendarView.uDays_ModBackColor = [UIColor clearColor];
+    calendarView.uDays_ModBackColor = [UIColor lightGrayColor];
+    calendarView.uDays_ModTitleColor = [UIColor grayColor];
     calendarView.uDay_backgroundColor = [UIColor clearColor];
     calendarView.isShowUDayBorderLine = YES;
     calendarView.uDay_BorderLineColor = [UIColor clearColor];
