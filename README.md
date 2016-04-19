@@ -11,6 +11,13 @@ This is a calendar base on UICollectionView!
     calendarView.uDay_selectedSubTitleColor = [UIColor greenColor];
     calendarView.uDay_selectedBackgroundColor = [UIColor orangeColor];
     calendarView.uDays_layoutType = TSCalendarDaysLayoutType_Default; 
+    //-----------------------v1.0.1-------------------------
+    calendarView.uDay_backgroundColor = [UIColor clearColor];    //可以修改日历可点击dayView为透明
+    calendarView.isShowUDayBorderLine = YES;                     //可以修分割线的颜色以及是否显示
+    calendarView.uDay_BorderLineColor = [UIColor redColor];
+    calendarView.uDays_ModBackColor = [UIColor lightGrayColor];  //可以修改日历不可点击dayView的背景色和字体颜色
+    calendarView.uDays_ModTitleColor = [UIColor grayColor];
+    //-------------------------------------------------------
     calendarView.delegate = self;
     [self.view addSubview:calendarView];
 
