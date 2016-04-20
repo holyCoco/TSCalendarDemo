@@ -31,7 +31,7 @@ static NSString* QCollectionCellReuseIdentity = @"QCollectionCellReuseIdentity";
 - (void)qScrollViewDidEndScrollingAnimation:(UIScrollView*)scrollView;
 @end
 
-@interface ZQCollectionView : UIView
+@interface TS_CollectionView : UIView
 @property (nonatomic, assign) id<ZQCollectionViewDelegate> collectionDelegate;
 @property (nonatomic, assign) BOOL pagingEnabled;
 @property (nonatomic, assign) BOOL bounces;

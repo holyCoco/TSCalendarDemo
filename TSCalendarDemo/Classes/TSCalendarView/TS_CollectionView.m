@@ -6,9 +6,9 @@
 //  Copyright © 2016年 zhangqiang. All rights reserved.
 //
 
-#import "ZQCollectionView.h"
+#import "TS_CollectionView.h"
 
-@interface ZQCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate> {
+@interface TS_CollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate> {
     int _horizonNumber, _verticalNumber;
     QCollectionScrollDirection _qCollectionScrollDirection;
     CGRect _thisFrame;
@@ -16,7 +16,7 @@
 @property (nonatomic, retain) UICollectionView* collectionV;
 
 @end
-@implementation ZQCollectionView
+@implementation TS_CollectionView
 
 - (instancetype)initWithFrame:(CGRect)frame andHorizonNum:(int)horizonNumber andVerticalNum:(int)verticalNumber
            andScrollDirection:(QCollectionScrollDirection)qCollectionScrollDirection

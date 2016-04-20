@@ -15,7 +15,7 @@
     UICollectionView* _calendarCollectionView;
     float _unitW, _unitH;
 }
-@property (nonatomic, retain) ZQCollectionView* mCollectionView;
+@property (nonatomic, retain) TS_CollectionView* mCollectionView;
 @property (nonatomic, retain) TSCalendarDaysLayoutModel* daysLayoutModel;
 @end
 
@@ -180,10 +180,10 @@
     return resultNo;
 }
 #pragma mark------------------LazyLoading-------------------
-- (ZQCollectionView*)mCollectionView
+- (TS_CollectionView*)mCollectionView
 {
     if (_mCollectionView == nil) {
-        _mCollectionView = [[ZQCollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) andHorizonNum:7 andVerticalNum:6 andScrollDirection:QCollectionScrollDirection_Horizontal andCollectionCellClass:[TSCalendarUnitDayCell class]];
+        _mCollectionView = [[TS_CollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) andHorizonNum:7 andVerticalNum:6 andScrollDirection:QCollectionScrollDirection_Horizontal andCollectionCellClass:[TSCalendarUnitDayCell class]];
         _mCollectionView.collectionDelegate = self;
         _mCollectionView.clipsToBounds = YES;
         _mCollectionView.collectionBackgroundColor = [UIColor clearColor];

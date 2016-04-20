@@ -22,7 +22,7 @@
 		1BCB5BB31CC48BD7000D8FD5 /* TSCommonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BA81CC48BD7000D8FD5 /* TSCommonModel.m */; };
 		1BCB5BB41CC48BD7000D8FD5 /* UIColor+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */; };
 		1BCB5BB51CC48BD7000D8FD5 /* UIView+tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */; };
-		1BCB5BB61CC48BD7000D8FD5 /* ZQCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */; };
+		1BCB5BB61CC48BD7000D8FD5 /* TS_CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCB5BAE1CC48BD7000D8FD5 /* TS_CollectionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +75,8 @@
 		1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+tool.m"; path = "TSCalendarView/UIColor+tool.m"; sourceTree = "<group>"; };
 		1BCB5BAB1CC48BD7000D8FD5 /* UIView+tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+tool.h"; path = "TSCalendarView/UIView+tool.h"; sourceTree = "<group>"; };
 		1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+tool.m"; path = "TSCalendarView/UIView+tool.m"; sourceTree = "<group>"; };
-		1BCB5BAD1CC48BD7000D8FD5 /* ZQCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZQCollectionView.h; path = TSCalendarView/ZQCollectionView.h; sourceTree = "<group>"; };
-		1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZQCollectionView.m; path = TSCalendarView/ZQCollectionView.m; sourceTree = "<group>"; };
+		1BCB5BAD1CC48BD7000D8FD5 /* TS_CollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TS_CollectionView.h; path = TSCalendarView/TS_CollectionView.h; sourceTree = "<group>"; };
+		1BCB5BAE1CC48BD7000D8FD5 /* TS_CollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TS_CollectionView.m; path = TSCalendarView/TS_CollectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +186,8 @@
 				1BCB5BAA1CC48BD7000D8FD5 /* UIColor+tool.m */,
 				1BCB5BAB1CC48BD7000D8FD5 /* UIView+tool.h */,
 				1BCB5BAC1CC48BD7000D8FD5 /* UIView+tool.m */,
-				1BCB5BAD1CC48BD7000D8FD5 /* ZQCollectionView.h */,
-				1BCB5BAE1CC48BD7000D8FD5 /* ZQCollectionView.m */,
+				1BCB5BAD1CC48BD7000D8FD5 /* TS_CollectionView.h */,
+				1BCB5BAE1CC48BD7000D8FD5 /* TS_CollectionView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 				1BCB5BB21CC48BD7000D8FD5 /* TSCalendarView.m in Sources */,
 				1BCB5B251CC47995000D8FD5 /* main.m in Sources */,
 				1BCB5BB01CC48BD7000D8FD5 /* TSC_Logic.m in Sources */,
-				1BCB5BB61CC48BD7000D8FD5 /* ZQCollectionView.m in Sources */,
+				1BCB5BB61CC48BD7000D8FD5 /* TS_CollectionView.m in Sources */,
 				1BCB5BB11CC48BD7000D8FD5 /* TSCalendarUnitDayCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
