@@ -8,12 +8,18 @@
 
 #import "TSCalendarUnitDayCell.h"
 
+@interface TSCalendarUnitDayCell () {
+}
+@property (nonatomic, retain) UIImageView* selectBackgroundView;
+@end
+
 @implementation TSCalendarUnitDayCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self.contentView addSubview:self.selectBackgroundView];
         [self.contentView addSubview:self.dayLabel];
         [self.contentView addSubview:self.lunarDayLabel];
 
@@ -76,13 +82,41 @@
         return;
     }
     _isTSC_UnitDayViewSelected = isTSC_UnitDayViewSelected;
-    self.backgroundColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor : (self.dayBackgroundColor ? self.dayBackgroundColor : [UIColor whiteColor]);
+    if (self.daySelectBGType == TSCalendarDaySelectedBGType_Rectangle) {
+        self.backgroundColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor : (self.dayBackgroundColor ? self.dayBackgroundColor : [UIColor whiteColor]);
+    }
+    else if (self.daySelectBGType == TSCalendarDaySelectedBGType_StrokeCircle) {
+        self.selectBackgroundView.layer.borderColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor.CGColor : (self.dayBackgroundColor.CGColor ? self.dayBackgroundColor.CGColor : [UIColor whiteColor].CGColor);
+    }
+    else if (self.daySelectBGType == TSCalendarDaySelectedBGType_FilledCircle) {
+        self.selectBackgroundView.backgroundColor = isTSC_UnitDayViewSelected ? self.daySelectedBackgroundColor : (self.dayBackgroundColor ? self.dayBackgroundColor : [UIColor whiteColor]);
+    }
+
     if (self.dayLayoutType == TSCalendarDaysLayoutType_Default) {
         self.dayLabel.isSelected4TSC = isTSC_UnitDayViewSelected;
     }
     else if (self.dayLayoutType == TSCalendarDaysLayoutType_Lunar) {
         self.dayLabel.isSelected4TSC = isTSC_UnitDayViewSelected;
         self.lunarDayLabel.isSelected4TSC = isTSC_UnitDayViewSelected;
+    }
+}
+- (void)setDaySelectBGType:(TSCalendarDaySelectedBGType)daySelectBGType
+{
+    _daySelectBGType = daySelectBGType;
+    if (daySelectBGType == TSCalendarDaySelectedBGType_Rectangle) {
+        self.selectBackgroundView.hidden = YES;
+    }
+    else if (daySelectBGType == TSCalendarDaySelectedBGType_FilledCircle) {
+        self.selectBackgroundView.hidden = NO;
+        self.selectBackgroundView.layer.cornerRadius = self.selectBackgroundView.frame.size.width / 2.0;
+        self.selectBackgroundView.layer.borderWidth = 0;
+    }
+    else if (daySelectBGType == TSCalendarDaySelectedBGType_StrokeCircle) {
+        self.selectBackgroundView.hidden = NO;
+        self.selectBackgroundView.layer.cornerRadius = self.selectBackgroundView.frame.size.width / 2.0;
+        self.selectBackgroundView.backgroundColor = [UIColor clearColor];
+        self.selectBackgroundView.layer.borderWidth = 1.5;
+        self.selectBackgroundView.layer.borderColor = [UIColor clearColor].CGColor;
     }
 }
 - (void)setDayTitleColor:(UIColor*)dayTitleColor
@@ -127,6 +161,15 @@
     border2.backgroundColor = borderLineColor;
 }
 #pragma mark------------------LazyLoading-------------------
+- (UIImageView*)selectBackgroundView
+{
+    if (_selectBackgroundView == nil) {
+        _selectBackgroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
+        _selectBackgroundView.backgroundColor = [UIColor clearColor];
+        _selectBackgroundView.bounds = CGRectMake(0, 0, _selectBackgroundView.frame.size.width / 5.0 * 4.0, _selectBackgroundView.frame.size.width / 5.0 * 4.0);
+    }
+    return _selectBackgroundView;
+}
 - (TSC_DaySelectableLabel*)dayLabel
 {
     if (_dayLabel == nil) {

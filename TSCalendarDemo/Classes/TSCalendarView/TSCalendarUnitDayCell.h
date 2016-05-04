@@ -30,6 +30,7 @@
 //============================================
 @property (nonatomic, assign) BOOL isTSC_UnitDayViewSelected; //是否选中（选中后变色）
 @property (nonatomic, retain) TSC_DaySelectableLabel *dayLabel, *lunarDayLabel;
+@property (nonatomic, assign) TSCalendarDaySelectedBGType daySelectBGType;
 
 - (void)resetModelAndDateShowText;
 

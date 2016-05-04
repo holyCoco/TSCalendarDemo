@@ -26,8 +26,9 @@
     *uDay_selectedSubTitleColor,
     *uDay_selectedBackgroundColor;
 @property (nonatomic, retain) UIColor *uDays_ModTitleColor, *uDays_ModBackColor; //月份中不可点击的dayView的字体颜色和背景色
-@property (nonatomic, assign) BOOL isShowUDayBorderLine;        //是否显示dayView边框线
-@property(nonatomic,retain)UIColor *uDay_BorderLineColor;   //边框颜色
+@property (nonatomic, assign) BOOL isShowUDayBorderLine; //是否显示dayView边框线
+@property (nonatomic, retain) UIColor* uDay_BorderLineColor; //边框颜色
+@property (nonatomic, assign) TSCalendarDaySelectedBGType uDay_SelectedBGType;
 
 @property (nonatomic, assign) TSCalendarDaysLayoutType uDays_layoutType; //单天的布局样式
 

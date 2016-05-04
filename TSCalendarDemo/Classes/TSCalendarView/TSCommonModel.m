@@ -159,11 +159,6 @@ static NSString* dBorderLineColor = @"borderLineColor";
         getDaysNumberOfYear:lastMonthYear
                    andMonth:lastMonth];
     int currentMonthDaysNumber = [[TSC_Logic getInstance] getDaysNumberOfYear:sufaceYear andMonth:sufaceMonth];
-    //    int nextMonthDaysNumber = [[TSC_Logic getInstance]
-    //        getDaysNumberOfYear:nextMonthYear
-    //                   andMonth:nextMonth];
-    //    int tempNum1 = monthFirstDayWeekday + currentMonthDaysNumber;
-
     //当前这个月需要的格子数
     //    int currentMonthNeededGridNum = ((tempNum1 / 7) + ((tempNum1 % 7) == 0 ? 0 : 1)) * 7;
     if ((sufaceDay + 1) < monthFirstDayWeekday) { //上个月

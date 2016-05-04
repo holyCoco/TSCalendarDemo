@@ -26,21 +26,25 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+
+    //    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"imgBg2"]]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 
     float tempWid = 350;
     TSCalendarView* calendarView = [[TSCalendarView alloc] initWithFrame:CGRectMake((kTSC_DeviceWidth - tempWid) / 2.0, 60, tempWid, tempWid / 7.0 * 6.0)];
-    calendarView.uDay_titleColor = [UIColor redColor];
-    calendarView.uDay_subTitleColor = [UIColor orangeColor];
-    calendarView.uDay_selectedTitleColor = [UIColor whiteColor];
+    calendarView.uDay_titleColor = [UIColor brownColor];
+    calendarView.uDay_subTitleColor = [UIColor yellowColor];
+    calendarView.uDay_selectedTitleColor = [UIColor greenColor];
     calendarView.uDay_selectedSubTitleColor = [UIColor greenColor];
-    calendarView.uDay_selectedBackgroundColor = [UIColor orangeColor];
-    calendarView.uDays_ModBackColor = [UIColor lightGrayColor];
-    calendarView.uDays_ModTitleColor = [UIColor grayColor];
+    calendarView.uDay_selectedBackgroundColor = [UIColor yellowColor];
+    calendarView.uDays_ModBackColor = [UIColor clearColor];
+    calendarView.uDays_ModTitleColor = [UIColor lightGrayColor];
     calendarView.uDay_backgroundColor = [UIColor clearColor];
     calendarView.isShowUDayBorderLine = YES;
     calendarView.uDay_BorderLineColor = [UIColor clearColor];
     calendarView.uDays_layoutType = TSCalendarDaysLayoutType_Default; //阴历模式暂未完善，敬请期待
+    calendarView.uDay_SelectedBGType = TSCalendarDaySelectedBGType_FilledCircle;
     calendarView.delegate = self;
     [self.view addSubview:calendarView];
 

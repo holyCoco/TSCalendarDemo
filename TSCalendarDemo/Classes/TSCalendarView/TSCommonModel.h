@@ -17,6 +17,11 @@ typedef NS_ENUM(NSUInteger, TSCalendarDaysLayoutType) {
     TSCalendarDaysLayoutType_Default,
     TSCalendarDaysLayoutType_Lunar //显示阴历
 };
+typedef NS_ENUM(int, TSCalendarDaySelectedBGType) {
+    TSCalendarDaySelectedBGType_Rectangle = 0, //矩形
+    TSCalendarDaySelectedBGType_FilledCircle, //实心圆
+    TSCalendarDaySelectedBGType_StrokeCircle //圆框
+};
 
 @interface TSCommonModel : NSObject
 @end
@@ -36,6 +41,7 @@ typedef NS_ENUM(NSUInteger, TSCalendarDaysLayoutType) {
 @property (nonatomic, retain) UIColor *modTitleColor, *modBackColor; //月份中不可点击的dayView的字体颜色和背景色
 @property (nonatomic, assign) BOOL isShowUDayBorderLine; //是否显示dayView边框线
 @property (nonatomic, retain) UIColor* borderLineColor;
+@property (nonatomic, assign) TSCalendarDaySelectedBGType daySelectedBGType;
 @end
 
 /**=============================================

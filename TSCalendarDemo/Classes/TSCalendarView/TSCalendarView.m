@@ -41,14 +41,14 @@
                   cellForItemAtIndexPath:(NSIndexPath*)indexPath
 {
     TSCalendarUnitDayCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:QCollectionCellReuseIdentity forIndexPath:indexPath];
-    //布局设置
+    //=============布局设置
     cell.dayLayoutType = self.daysLayoutModel.layoutType;
     cell.dayTitleColor = self.daysLayoutModel.titleColor;
     cell.daySubTitleColor = self.daysLayoutModel.subTitleColor;
     cell.daySelectedTitleColor = self.daysLayoutModel.selectedTitleColor;
     cell.daySelectedSubTitleColor = self.daysLayoutModel.selectedSubTitleColor;
     cell.daySelectedBackgroundColor = self.daysLayoutModel.selectedBackgroundColor;
-
+    cell.daySelectBGType = self.daysLayoutModel.daySelectedBGType;
     cell.dayBackgroundColor = self.daysLayoutModel.backgroundColor;
     cell.modTitleColor = self.daysLayoutModel.modTitleColor;
     cell.modBackgroundColor = self.daysLayoutModel.modBackColor;
@@ -69,6 +69,7 @@
 }
 - (void)qCollectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
+    NSLog(@"lastSection===%d", (int)indexPath.section);
     if (_lastSelectIndexPath) {
         TSCalendarUnitDayCell* lastCell = (TSCalendarUnitDayCell*)[collectionView cellForItemAtIndexPath:_lastSelectIndexPath];
         lastCell.isTSC_UnitDayViewSelected = NO;
@@ -90,7 +91,7 @@
     [self resetCollectionViewHeightWithScroll:scrollView];
     int pageNum = scrollView.contentOffset.x / scrollView.frame.size.width;
     int year = TSC_START_YEAR + (pageNum + 1) / 12 + ((pageNum + 1) % 12 > 0 ? 1 : 0) - 1;
-    int month = (pageNum + 1) % 12;
+    int month = pageNum % 12 + 1;
     if (self.delegate && [self.delegate respondsToSelector:@selector(calendarCurrentMonth:andYear:)]) {
         [self.delegate calendarCurrentMonth:month andYear:year];
     }
@@ -118,11 +119,13 @@
     int tempNum = firstMonthDayWeekday + numbers4Month - 1;
     int occupyNumbersInMonth = (tempNum / 7 + (tempNum % 7 == 0 ? 0 : 1)) * 7;
     int occupyLinesInMonth = occupyNumbersInMonth / 7;
-    float newHeight = occupyLinesInMonth * (self.frame.size.height / 6.0);
+    //    float newHeight = occupyLinesInMonth * (self.frame.size.height / 6.0);
+    float newHeight = occupyLinesInMonth * _unitH;
     [self.mCollectionView resetHeight:newHeight];
     //============ Calendar->Delegate
     if (self.delegate && [self.delegate respondsToSelector:@selector(calendarHeightAtPresent:)]) {
         [self.delegate calendarHeightAtPresent:newHeight];
+        [self resetHeight:newHeight];
     }
 }
 /**
@@ -149,7 +152,7 @@
         [self.delegate calendarCurrentMonth:month andYear:year];
     }
     int currentPageNum = _calendarCollectionView.contentOffset.x / _calendarCollectionView.frame.size.width;
-    if (_lastSelectIndexPath && (int)_lastSelectIndexPath.section == currentPageNum) {
+    if (_lastSelectIndexPath && (int)_lastSelectIndexPath.section == currentPageNum && cSection == currentPageNum) {
         NSIndexPath* tempIndexPath = [NSIndexPath indexPathForRow:[self showIndexRow:cRow] inSection:cSection];
         [self qCollectionView:_calendarCollectionView didSelectItemAtIndexPath:tempIndexPath];
     }
@@ -217,6 +220,7 @@
     _daysLayoutModel.modTitleColor = self.uDays_ModTitleColor;
     _daysLayoutModel.isShowUDayBorderLine = self.isShowUDayBorderLine;
     _daysLayoutModel.borderLineColor = self.uDay_BorderLineColor;
+    _daysLayoutModel.daySelectedBGType = self.uDay_SelectedBGType;
     return _daysLayoutModel;
 }
 
