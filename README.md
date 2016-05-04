@@ -27,7 +27,7 @@ There are some "delegate" you can complete:
 * - (void)calendarCurrentMonth:(int)month andYear:(int)year;    //you can get the infomation about year and month when the calendar scroll stop.
 
 
-版本特性：
+   版本特性：
    v1.0.3
       修改bug若干：
          12月显示为0月的bug   
