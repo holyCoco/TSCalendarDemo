@@ -58,6 +58,11 @@
     cell.sufaceYear = TSC_START_YEAR + (int)indexPath.section / 12;
     cell.sufaceMonth = (int)indexPath.section % 12 + 1;
     cell.sufaceDay = (int)indexPath.row;
+    if (IS_iOS9 == NO) {
+        int tempIndexRowNum = (int)indexPath.row / 6 + 7 * ((int)indexPath.row % 6);
+        NSIndexPath* tIndexPath = [NSIndexPath indexPathForItem:tempIndexRowNum inSection:indexPath.section];
+        cell.sufaceDay = (int)tIndexPath.row;
+    }
     [cell resetModelAndDateShowText];
     cell.isTSC_UnitDayViewSelected = NO; //没有选中
 
@@ -67,18 +72,21 @@
     }
     return cell;
 }
+
 - (void)qCollectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    NSLog(@"lastSection===%d", (int)indexPath.section);
     if (_lastSelectIndexPath) {
         TSCalendarUnitDayCell* lastCell = (TSCalendarUnitDayCell*)[collectionView cellForItemAtIndexPath:_lastSelectIndexPath];
         lastCell.isTSC_UnitDayViewSelected = NO;
     }
-    TSCalendarUnitDayCell* cell = [self doSelectUICalendarViewUnitDay:indexPath andCollectionView:collectionView];
     _lastSelectIndexPath = indexPath;
+    TSCalendarUnitDayCell* cell = [self doSelectUICalendarViewUnitDay:indexPath andCollectionView:collectionView];
     //======== CalendarDalegate.SelectDate
     if (self.delegate && [self.delegate respondsToSelector:@selector(calendarDidSelectItemModel:andIndexPath:)]) {
-        [self.delegate calendarDidSelectItemModel:cell.unitDateModel andIndexPath:indexPath];
+        int tempIndexRowNum = (int)indexPath.row / 6 + 7 * ((int)indexPath.row % 6);
+        NSIndexPath* tIndexPath = [NSIndexPath indexPathForItem:tempIndexRowNum inSection:indexPath.section];
+        [self.delegate calendarDidSelectItemModel:cell.unitDateModel andIndexPath:tIndexPath];
+        NSLog(@"index.Row=====%d", (int)tIndexPath.row);
     }
 }
 
@@ -108,6 +116,7 @@
     selectCell.isTSC_UnitDayViewSelected = YES;
     return selectCell;
 }
+
 #pragma mark------------------SomeLogic-------------------
 - (void)resetCollectionViewHeightWithScroll:(UIScrollView*)scrollView
 {
@@ -128,6 +137,7 @@
         [self resetHeight:newHeight];
     }
 }
+
 /**
  *  初始化选中某一天
  */
@@ -152,6 +162,7 @@
         [self.delegate calendarCurrentMonth:month andYear:year];
     }
     int currentPageNum = _calendarCollectionView.contentOffset.x / _calendarCollectionView.frame.size.width;
+    //======本页之内的跳转
     if (_lastSelectIndexPath && (int)_lastSelectIndexPath.section == currentPageNum && cSection == currentPageNum) {
         NSIndexPath* tempIndexPath = [NSIndexPath indexPathForRow:[self showIndexRow:cRow] inSection:cSection];
         [self qCollectionView:_calendarCollectionView didSelectItemAtIndexPath:tempIndexPath];
@@ -159,9 +170,9 @@
     else {
         _lastSelectIndexPath = [NSIndexPath indexPathForRow:[self showIndexRow:cRow] inSection:cSection];
         [_calendarCollectionView scrollToItemAtIndexPath:_lastSelectIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
-        //偏移到对应月份
+        //======偏移到对应月份
         [_calendarCollectionView setContentOffset:CGPointMake(contentOffset_X, _calendarCollectionView.contentOffset.y) animated:NO];
-        //修改collectionView的高度以对应相应月份的值显示
+        //======修改collectionView的高度以对应相应月份的值显示
         [self resetCollectionViewHeightWithScroll:_calendarCollectionView];
     }
     //======== CalendarDelegate->SelectDate
@@ -170,7 +181,7 @@
         unitDateModel.year = year;
         unitDateModel.month = month;
         unitDateModel.day = day;
-        unitDateModel.isBelongToThisMonth = year;
+        unitDateModel.isBelongToThisMonth = (cSection == currentPageNum);
         [self.delegate calendarDidSelectItemModel:unitDateModel andIndexPath:_lastSelectIndexPath];
     }
 }
@@ -182,6 +193,7 @@
     int resultNo = pX > 0 ? ((pX - 1) * 6 + pY) : pY;
     return resultNo;
 }
+
 #pragma mark------------------LazyLoading-------------------
 - (TS_CollectionView*)mCollectionView
 {

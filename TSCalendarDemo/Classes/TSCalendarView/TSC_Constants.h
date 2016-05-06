@@ -23,4 +23,6 @@
     (tempView.frame.origin.y + tempView.frame.size.height)
 #define TSC_ViewEndX(tempView) (tempView.frame.origin.x + tempView.frame.size.width)
 
+#define IS_iOS9 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+
 #endif /* TSC_Constants_h */

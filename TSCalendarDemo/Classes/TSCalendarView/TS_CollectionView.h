@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
-    QCollectionScrollDirection_Horizontal,
+typedef NS_ENUM(int, QCollectionScrollDirection) {
+    QCollectionScrollDirection_Horizontal=0,
     QCollectionScrollDirection_Vertical
-} QCollectionScrollDirection;
+};
 static NSString* QCollectionCellReuseIdentity = @"QCollectionCellReuseIdentity";
 
 @protocol ZQCollectionViewDelegate <NSObject>

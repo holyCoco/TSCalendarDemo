@@ -27,10 +27,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.view setBackgroundColor:[UIColor whiteColor]];
-
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"imgBg2"]]];
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-
     float tempWid = 350;
     TSCalendarView* calendarView = [[TSCalendarView alloc] initWithFrame:CGRectMake((kTSC_DeviceWidth - tempWid) / 2.0, 60, tempWid, tempWid / 7.0 * 6.0)];
     calendarView.uDay_titleColor = [UIColor brownColor];
@@ -61,6 +59,7 @@
     NSLog(@"year===%d===%d", year, month);
     [self.tempBtn setTitle:TSCString_Format(@"%d年%d月", year, month) forState:UIControlStateNormal];
 }
+
 - (void)calendarHeightAtPresent:(float)calendarH
 {
     NSLog(@"nowCalendarH====%f", calendarH);
@@ -69,6 +68,7 @@
 {
     TSCalendarUnitDateModel* unitDateModel = model;
     NSLog(@"unitDate===%d==%d==%d", unitDateModel.year, unitDateModel.month, unitDateModel.day);
+    NSLog(@"didSelectIndexPRow===%d", (int)indexPath.row);
 }
 #pragma mark------------------LazyLoading-------------------
 - (UIButton*)tempBtn

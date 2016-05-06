@@ -6,6 +6,7 @@
 //  Copyright © 2016年 zhangqiang. All rights reserved.
 //
 
+#import "TSC_Constants.h"
 #import "TS_CollectionView.h"
 
 @interface TS_CollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate> {
@@ -37,7 +38,6 @@
         viewLayout.minimumInteritemSpacing = 0.0f; //每列的最小间距
         viewLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0); //网格视图 上下左右的边距
         viewLayout.scrollDirection = (qCollectionScrollDirection == QCollectionScrollDirection_Horizontal) ? UICollectionViewScrollDirectionHorizontal : UICollectionViewScrollDirectionVertical;
-        //create collectionView
         UICollectionView* collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:viewLayout];
         [collectionView registerClass:cellClass forCellWithReuseIdentifier:QCollectionCellReuseIdentity];
         collectionView.pagingEnabled = YES;
@@ -122,10 +122,11 @@
     UICollectionViewCell* cell = nil;
     if (self.collectionDelegate) {
         int indexRowNumber = (int)indexPath.row;
-        if (_qCollectionScrollDirection == QCollectionScrollDirection_Horizontal) {
-            indexRowNumber = indexRowNumber / _verticalNumber + _horizonNumber * (indexRowNumber % _verticalNumber);
+        if (_qCollectionScrollDirection == QCollectionScrollDirection_Horizontal && IS_iOS9) {
+            indexRowNumber = indexRowNumber / 6 + 7 * (indexRowNumber % 6);
         }
-        cell = [self.collectionDelegate qCollectionView:collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:indexRowNumber inSection:indexPath.section]];
+        NSIndexPath* tempIndexP = [NSIndexPath indexPathForRow:indexRowNumber inSection:indexPath.section];
+        cell = [self.collectionDelegate qCollectionView:collectionView cellForItemAtIndexPath:tempIndexP];
     }
     else {
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:QCollectionCellReuseIdentity forIndexPath:indexPath];
@@ -134,6 +135,9 @@
 }
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
+    int indexRowNumber = (int)indexPath.row;
+    indexRowNumber = indexRowNumber / _verticalNumber + _horizonNumber * (indexRowNumber % _verticalNumber);
+    //    NSLog(@"oldRow===%d,nowRow===%d", (int)indexPath.row, indexRowNumber);
     if (self.collectionDelegate) {
         [self.collectionDelegate qCollectionView:collectionView didSelectItemAtIndexPath:indexPath];
     }
