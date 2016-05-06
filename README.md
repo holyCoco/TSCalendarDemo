@@ -32,3 +32,5 @@ This is a calendar base on UICollectionView!
     v1.0.3
       *修改12月显示为0月的bug   
       *添加选中天的样式：可以设置圆形填充选中，圆形边框选中，和矩形填充选中，选中背景色和字体颜色自定
+    v1.0.4
+      *修改在iOS9以下collectionView显示错乱的问题
