@@ -34,3 +34,5 @@ This is a calendar base on UICollectionView!
       *添加选中天的样式：可以设置圆形填充选中，圆形边框选中，和矩形填充选中，选中背景色和字体颜色自定
     v1.0.4
       *修改在iOS9以下collectionView显示错乱的问题
+    v1.0.6
+      *修改起始年限为计算机元年1970，修改日历长度为1万年！
