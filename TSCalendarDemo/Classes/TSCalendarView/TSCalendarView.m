@@ -35,7 +35,7 @@
 #pragma mark------------------ZQCollection.Delegate-------------------
 - (NSInteger)qNumberOfSectionsInCollectionView:(UICollectionView*)collection
 {
-    return 10000;       //爱有一万年😄，目测使用的无限大，不在纠论
+    return 10000; //爱有一万年😄，目测使用的无限大，不在纠论
 }
 - (UICollectionViewCell*)qCollectionView:(UICollectionView*)collectionView
                   cellForItemAtIndexPath:(NSIndexPath*)indexPath
@@ -133,8 +133,8 @@
     [self.mCollectionView resetHeight:newHeight];
     //============ Calendar->Delegate
     if (self.delegate && [self.delegate respondsToSelector:@selector(calendarHeightAtPresent:)]) {
-        [self.delegate calendarHeightAtPresent:newHeight];
         [self resetHeight:newHeight];
+        [self.delegate calendarHeightAtPresent:newHeight];
     }
 }
 
