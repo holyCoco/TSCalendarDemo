@@ -11,7 +11,7 @@
 #import <UIKit/UIKit.h>
 #import <objc/runtime.h>
 
-#define TSC_START_YEAR 2000
+#define TSC_START_YEAR 1970
 
 typedef NS_ENUM(NSUInteger, TSCalendarDaysLayoutType) {
     TSCalendarDaysLayoutType_Default,

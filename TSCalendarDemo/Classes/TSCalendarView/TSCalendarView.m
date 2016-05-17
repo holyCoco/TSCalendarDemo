@@ -35,7 +35,7 @@
 #pragma mark------------------ZQCollection.Delegate-------------------
 - (NSInteger)qNumberOfSectionsInCollectionView:(UICollectionView*)collection
 {
-    return 1200;
+    return 10000;       //爱有一万年😄，目测使用的无限大，不在纠论
 }
 - (UICollectionViewCell*)qCollectionView:(UICollectionView*)collectionView
                   cellForItemAtIndexPath:(NSIndexPath*)indexPath
